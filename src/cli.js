@@ -62,18 +62,25 @@ const args = yargs.option('v', {
   default: 0,
   describe: `the network delay (unit: msec) `
 })
+.option('h', {
+  alias: 'help',
+  describe: ` show usage `
+})
 .argv;
+
+if (args.help) {
+  help()
+  process.exit(0)
+}
 
 const transerParamsToArray = params => {
   const keys = Object.keys(params || {}).filter(key => key.length > 1 && key !== '$0')
   const arr = keys.map(key => `--${key} ${params[key]}`)
-  console.log('转换 对象后: ', arr)
   return arr
 }
 
 choosePort('127.0.0.1', args.port).then(port => {
   if (!port) process.exit(0);
-  console.log('端口号市: ')
   nodemon({
     script: path.resolve(__dirname, 'app/app.js'),
     args: transerParamsToArray(args),
