@@ -12,7 +12,8 @@ This is a great command line tool for building 'CORS' api, it will create a node
 * support open api in browser
 
 Looks like this:
-![](/images/cli-h.png)
+
+![](https://raw.githubusercontent.com/iceyangcc/mock-api-cli/master/images/cli-h.png)
 
 ### Installation
 
