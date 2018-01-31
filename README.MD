@@ -11,6 +11,8 @@ This is a great command line tool for building 'CORS' api, it will create a node
 * support livereload when some file is modyfied 
 * support open api in browser
 
+Looks like this:
+![](/images/cli-h.png)
 
 ### Installation
 
