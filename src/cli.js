@@ -15,7 +15,8 @@ const colors = require('colors/safe')
 const Table = require('cli-table-zh')
 const exec = require('shelljs').exec
 const program = require('commander')
-const nodemon = require('nodemon');
+const nodemon = require('nodemon')
+const minimist =  require('minimist')
 
 const yargs = require('yargs')
 const packageInfo = require('../package')
@@ -24,15 +25,24 @@ const cwdPath = process.cwd()
 const cliParams = {}
 const help = require('./cmd/help')
 
+
 const choosePort = require('./utils/port-choose')
+const argv = minimist(process.argv.slice(2));
+
+if (argv.help || argv.h) {
+  help()
+  process.exit(0)
+}
+if (argv.v || argv.version) {
+  console.log(colors.rainbow(`${packageInfo.version}`))
+  process.exit(0)
+}
+
 
 /**
  * command line params config
  */
-const args = yargs.option('v', {
-  alias: 'version'
-})
-.option('p', {
+const args = yargs.option('p', {
   alias: 'port',
   default: '3006',
   describe: 'port number '
@@ -67,11 +77,6 @@ const args = yargs.option('v', {
   describe: ` show usage `
 })
 .argv;
-
-if (args.help) {
-  help()
-  process.exit(0)
-}
 
 const transerParamsToArray = params => {
   const keys = Object.keys(params || {}).filter(key => key.length > 1 && key !== '$0')
