@@ -44,7 +44,7 @@ if (argv.v || argv.version) {
  */
 const args = yargs.option('p', {
   alias: 'port',
-  default: '3006',
+  default: 3006,
   describe: 'port number '
 })
 .option('d', {
@@ -78,8 +78,9 @@ const args = yargs.option('p', {
 })
 .argv;
 
-const transerParamsToArray = params => {
-  const keys = Object.keys(params || {}).filter(key => key.length > 1 && key !== '$0')
+const transerParamsToArray = (params, port) => {
+  params.port = port || 3006
+  const keys = Object.keys(params).filter(key => key.length > 1 && key !== '$0')
   const arr = keys.map(key => `--${key} ${params[key]}`)
   return arr
 }
@@ -88,7 +89,7 @@ choosePort('127.0.0.1', args.port).then(port => {
   if (!port) process.exit(0);
   nodemon({
     script: path.resolve(__dirname, 'app/app.js'),
-    args: transerParamsToArray(args),
+    args: transerParamsToArray(args, port),
     nodeArgs: ['--harmony'],
     watch: path.resolve(cwdPath, args.dir),
     ext: 'json,js'

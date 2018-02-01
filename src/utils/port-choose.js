@@ -5,6 +5,8 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+'use strict';
+
 const chalk = require('chalk');
 const detect = require('detect-port-alt');
 const isRoot = require('is-root');
@@ -20,13 +22,17 @@ function choosePort(host, defaultPort) {
         if (port === defaultPort) {
           return resolve(port);
         }
+        console.log('port是: ',typeof port)
+        console.log('defaultPort是 : ',typeof defaultPort)
         const message =
           process.platform !== 'win32' && defaultPort < 1024 && !isRoot()
             ? `Admin permissions are required to run a server on a port below 1024.`
             : `Something is already running on port ${defaultPort}.`;
         if (isInteractive) {
-          clearConsole();
+          // clearConsole();
           const existingProcess = getProcessForPort(defaultPort);
+          console.log('existingProcess是: ', existingProcess)
+          
           const question = {
             type: 'confirm',
             name: 'shouldChangePort',
@@ -39,8 +45,10 @@ function choosePort(host, defaultPort) {
           };
           inquirer.prompt(question).then(answer => {
             if (answer.shouldChangePort) {
+              console.log('改变端口', port, typeof port)
               resolve(port);
             } else {
+              console.log('不不不改')
               resolve(null);
             }
           });
