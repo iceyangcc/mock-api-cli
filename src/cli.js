@@ -25,7 +25,6 @@ const cwdPath = process.cwd()
 const cliParams = {}
 const help = require('./cmd/help')
 
-
 const choosePort = require('./utils/port-choose')
 const argv = minimist(process.argv.slice(2));
 
@@ -37,7 +36,6 @@ if (argv.v || argv.version) {
   console.log(colors.rainbow(`${packageInfo.version}`))
   process.exit(0)
 }
-
 
 /**
  * command line params config

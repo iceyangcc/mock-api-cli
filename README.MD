@@ -1,4 +1,6 @@
-> This is a great command line tool for building 'CORS' api, it will create a node server to provide api service by scanning  api js/json files in your working directory. 
+
+
+> Mock json api ? This is a great command line tool for building 'CORS' api, it will create a node server to provide api service by scanning  api js/json files in your working directory. 
 
 > 
 
@@ -18,9 +20,9 @@ Looks like this:
 ### Installation
 
 ```text
-sudo npm install -g
+npm install -g
 
-or sudo yarn global add mock-api-cli
+or yarn global add mock-api-cli (recommand)
 ```
 
 ### Usage
@@ -30,6 +32,12 @@ cd your-work-directory
 mock-api-cli -h 
 ```
 > 
+
+#### try it in teminal 
+```text
+mock-api-cli --port 3008 --watch -o
+```
+
 
 you should create js/json files that defines the api request path, request method  and response data, then we will serve those files via api 
 
@@ -80,12 +88,7 @@ list.json (also include "path", "res", "type"...)
 The invalid object will be ignored
 ```
 
-#### try it in teminal 
-```text
-mock-api-cli --port 3008 --watch -o
-```
-
-for more detail , visit https://github.com/iceyangcc
+for more detail , visit https://github.com/iceyangcc/mock-api-cli
 
 ### Techs
 * koa / middleware
@@ -93,14 +96,13 @@ for more detail , visit https://github.com/iceyangcc
 
 ### Know more
 [my blog: http://blog.nodejs.tech](http://blog.nodejs.tech)
+#####  
 [github](https://github.com/iceyangcc)
 
-### About
-I am a front-end engineer...
-I will optimize the 'mock-api-cli' continually 
 
 ### Contact me
 iceyangcc@sina.com
+
 
 
 

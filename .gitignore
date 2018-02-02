@@ -5,4 +5,3 @@ dist/
 .happypack/
 npm-debug.log
 yarn-error.log
-test/
