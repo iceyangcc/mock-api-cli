@@ -1,6 +1,6 @@
 {
   "name": "mock-api-cli",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "The mock-api-cl command line utility.",
   "main": "index.js",
   "preferGlobal": true,
