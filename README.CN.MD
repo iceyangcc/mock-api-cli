@@ -22,7 +22,7 @@
 ### 安装
 
 ```text
-npm install -g
+npm install -g mock-api-cli
 
 or yarn global add mock-api-cli (推荐)
 ```
