@@ -41,14 +41,22 @@ module.exports = function (dirname, router) {
     }
   })
 
-  // with no api
+  // api sample
   if (!apis.length) {
     router.get('/', async (ctx, next) => {
       ctx.response.body = JSON.stringify({
-        status: 200,
-        data: {
-          key: 'welcome to use mock-api-cli !!!',
-          value: 'webcome to my blog http://blog.nodejs.tech '
+        path: '/welcome',
+        res: {
+          code: 'Math.random() > .5 ? 200 : 400',
+          data: {
+            hello: 'welcome to use mock-api-cli',
+            desc: 'This is a sample of json/js file',
+            npmis: 'https://www.npmjs.com/package/mock-api-cli',
+            installation: 'npm i -g mock-api-cli',
+            usage: 'cd working-dir && mac -p 3009',
+            blog: 'webcome to my blog http://blog.nodejs.tech ',
+            username: 'iceyang'
+          }
         }
       })
     })

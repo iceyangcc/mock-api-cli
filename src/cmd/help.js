@@ -23,13 +23,14 @@ const help = (commandWelcomeTitle) => {
   })
 
   table.push(['ps: all params are optional '])
-  table.push(['example: mock-api-cli -o '])
+  table.push(['example: mock-api-cli -o (mac -o)'])
   table.push(['it will read all legal js/json files to  publish on a server and open browser'])
   
   console.log(table.toString())
   console.log('\n Command line params : \n')
 
   table = new Table()
+  
   table.push({ '-p / --port <port>': `The server's port ,default: 3006 ` })
   table.push({ '-d / --dir <dir>': `The work directory path, default: . (current dir)` })
   table.push({ '-s / --static <dir>': `The static file path, default: none` })

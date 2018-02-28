@@ -31,9 +31,11 @@ or yarn global add mock-api-cli (推荐)
 
 ```text
 cd your-work-directory
-mock-api-cli -h 
+mock-api-cli -h (或者使用 mac -h)
 ```
 > 
+
+#### 注意:  你可以使用 "mac"命令替换 "mock-api-cli"命令
 
 #### 在终端命令行中使用
 ```text

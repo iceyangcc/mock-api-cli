@@ -1,11 +1,12 @@
 {
   "name": "mock-api-cli",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "The mock-api-cl command line utility.",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
-    "mock-api-cli": "./src/cli.js"
+    "mock-api-cli": "./src/cli.js",
+    "mac": "./src/cli.js"
   },
   "directories": {
     "lib": "lib"

@@ -6,14 +6,17 @@ const Cors = require('koa-cors')
 const Serve = require('koa-static')
 const Router = require('koa-router')
 const KoaBody = require('koa-body')
+
 const path = require('path')
 const currentPath = path.resolve(__dirname, '.')
 const getProcessForPort = require('../src/utils/getport')
 const address = require('address');
+
 const fs = require('fs');
 const url = require('url');
 const chalk = require('chalk');
 const detect = require('detect-port-alt');
+
 const isRoot = require('is-root');
 const inquirer = require('inquirer');
 const clearConsole = require('../src/utils/ref/clearConsole');
@@ -28,13 +31,16 @@ function choosePort(host, defaultPort) {
         if (port === defaultPort) {
           return resolve(port);
         }
+
         const message =
           process.platform !== 'win32' && defaultPort < 1024 && !isRoot()
             ? `Admin permissions are required to run a server on a port below 1024.`
             : `Something is already running on port ${defaultPort}.`;
+
         if (isInteractive) {
           clearConsole();
           const existingProcess = getProcessForPort(defaultPort);
+
           const question = {
             type: 'confirm',
             name: 'shouldChangePort',
@@ -45,6 +51,7 @@ function choosePort(host, defaultPort) {
               ) + '\n\nWould you like to run the app on another port instead?',
             default: true,
           };
+
           inquirer.prompt(question).then(answer => {
             if (answer.shouldChangePort) {
               resolve(port);
@@ -52,6 +59,7 @@ function choosePort(host, defaultPort) {
               resolve(null);
             }
           });
+          
         } else {
           console.log(chalk.red(message));
           resolve(null);

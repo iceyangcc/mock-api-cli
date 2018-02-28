@@ -22,22 +22,30 @@ Looks like this:
 ```text
 npm install -g mock-api-cli
 
-or yarn global add mock-api-cli (recommand)
+or 
+
+yarn global add mock-api-cli (recommand)
 ```
 
 ### Usage
 
 ```text
 cd your-work-directory
-mock-api-cli -h 
+
+get help:
+
+mock-api-cli -h  (you can also use `mac -h`)
+
 ```
 > 
 
+#### tips: you can use 'mac' to replace 'mock-api-cli' command
+
 #### try it in teminal 
 ```text
-mock-api-cli --port 3008 --watch -o
-```
+mock-api-cli  -o  (or mac -o)
 
+```
 
 you should create js/json files that defines the api request path, request method  and response data, then we will serve those files via api 
 
