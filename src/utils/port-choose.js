@@ -11,6 +11,7 @@ const chalk = require('chalk');
 const detect = require('detect-port-alt');
 const isRoot = require('is-root');
 const inquirer = require('inquirer');
+
 const clearConsole = require('./ref/clearConsole');
 const getProcessForPort = require('./process-port')
 const isInteractive = process.stdout.isTTY;
@@ -22,12 +23,15 @@ function choosePort(host, defaultPort) {
         if (port === defaultPort) {
           return resolve(port);
         }
+
         console.log('port是: ',typeof port)
         console.log('defaultPort是 : ',typeof defaultPort)
+
         const message =
           process.platform !== 'win32' && defaultPort < 1024 && !isRoot()
             ? `Admin permissions are required to run a server on a port below 1024.`
             : `Something is already running on port ${defaultPort}.`;
+
         if (isInteractive) {
           // clearConsole();
           const existingProcess = getProcessForPort(defaultPort);
@@ -43,12 +47,11 @@ function choosePort(host, defaultPort) {
               ) + '\n\nWould you like to run the app on another port instead?',
             default: true,
           };
+          
           inquirer.prompt(question).then(answer => {
             if (answer.shouldChangePort) {
-              console.log('改变端口', port, typeof port)
               resolve(port);
             } else {
-              console.log('不不不改')
               resolve(null);
             }
           });

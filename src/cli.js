@@ -13,6 +13,7 @@ const fs = require('fs')
 const path = require('path')
 const colors = require('colors/safe')
 const Table = require('cli-table-zh')
+
 const exec = require('shelljs').exec
 const program = require('commander')
 const nodemon = require('nodemon')
@@ -21,6 +22,7 @@ const minimist =  require('minimist')
 const yargs = require('yargs')
 const packageInfo = require('../package')
 const commandWelcomeTitle = colors.rainbow(`\n -------- Welcome to use mock-api-cli [${packageInfo.version}] -------- \n`)
+
 const cwdPath = process.cwd()
 const cliParams = {}
 const help = require('./cmd/help')
@@ -32,6 +34,7 @@ if (argv.help || argv.h) {
   help()
   process.exit(0)
 }
+
 if (argv.v || argv.version) {
   console.log(colors.rainbow(`${packageInfo.version}`))
   process.exit(0)
@@ -85,6 +88,7 @@ const transerParamsToArray = (params, port) => {
 
 choosePort('127.0.0.1', args.port).then(port => {
   if (!port) process.exit(0);
+
   nodemon({
     script: path.resolve(__dirname, 'app/app.js'),
     args: transerParamsToArray(args, port),
