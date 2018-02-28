@@ -5,3 +5,6 @@ dist/
 .happypack/
 npm-debug.log
 yarn-error.log
+config/
+images/
+

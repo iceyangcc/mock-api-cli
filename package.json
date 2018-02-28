@@ -1,7 +1,7 @@
 {
   "name": "mock-api-cli",
-  "version": "0.2.5",
-  "description": "The mock-api-cl command line utility.",
+  "version": "0.2.6",
+  "description": "A command line tools for building JSON API",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
@@ -29,6 +29,7 @@
     "restapi",
     "cors",
     "iceyang",
+    "iceyangcc",
     "mockapi",
     "restfulapi"
   ],
